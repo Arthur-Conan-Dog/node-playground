@@ -44,12 +44,74 @@ MongoClient.connect(url, (err, client) => {
 
   const db = client.db(dbName)
 
-  // insertDocument(db, 'Users', {
-  //   name: 'Shaw',
-  //   location: 'New York City'
+  // insertDocument(db, 'Todos', {
+  //   text: 'Test',
+  //   completed: true
   // })
 
-  findDocuments(db, 'Users')
+  // findDocuments(db, 'Users')
+
+  // // deleteMany
+  // db.collection('Todos')
+  //   .deleteMany({ text: 'Test' })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
+
+  // // deleteOne
+  // db.collection('Todos')
+  //   .deleteOne({
+  //     text: 'Test'
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
+
+  // // find and deleteOne
+  // db.collection('Todos')
+  //   .findOneAndDelete({
+  //     completed: true
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
+
+  // // updateOne
+  // db.collection('Todos')
+  //   .updateOne({
+  //     _id: new ObjectID('5abdd6a1c35b1e1e68769014')
+  //   }, {
+  //     $set: {
+  //       text: 'Finish Mongodb cources'
+  //     }
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
+
+  // findOne and update
+  // db.collection('Todos')
+  //   .findOneAndUpdate({
+  //     _id: new ObjectID('5abdd6a1c35b1e1e68769014')
+  //   }, {
+  //     $set: {
+  //       completed: true
+  //     }
+  //   }, {
+  //     returnOriginal: false
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
+
+  // // update operator
+  // db.collection('Users')
+  //   .findOneAndUpdate({
+  //     name: 'Shaw'
+  //   }, {
+  //     $inc: {
+  //       age: 2
+  //     }
+  //   }, {
+  //     returnOriginal: false
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.error(err))
 
   client.close()
 });
