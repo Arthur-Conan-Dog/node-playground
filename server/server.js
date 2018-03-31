@@ -9,7 +9,8 @@ const { Schema } = mongoose
 const { Todo } = require('./models/todo')
 const { User } = require('./models/user')
 
-const app = express()
+const app = express(),
+      port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
 
@@ -41,6 +42,6 @@ app.get('/todos/:id', (req, res) => {
   }
 })
 
-app.listen(3001, () => console.log('Start up on Port 3001...'))
+app.listen(port, () => console.log(`Start up on Port ${port}...`))
 
 module.exports = { app }
