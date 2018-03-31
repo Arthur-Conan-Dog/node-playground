@@ -52,7 +52,7 @@ app.delete('/todos/:id', (req, res) => {
 
       if (doc) {
         console.log(doc)
-        res.status(200).send()
+        res.status(200).send(doc)
       } else {
         res.status(404).send()
       }

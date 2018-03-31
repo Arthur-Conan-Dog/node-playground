@@ -103,16 +103,36 @@ describe('GET /todos/:id', () => {
 
 describe('DELETE /todos/:id', () => {
   it('should delete todo doc', done => {
+    
+    const id = todos[0]._id.toHexString()
+    
     request(app)
-      .delete(`/todos/${todos[0]._id.toHexString()}`)
+      .delete(`/todos/${id}`)
       .expect(200)
-      .end(done)
+      .expect(res => expect(res.body._id).toBe(id))
+      .end((err, res) => {
+        if (err) {
+          return done(err)
+        }
+
+        Todo.findById(id).then(todo => {
+          expect(todo).toBe(null)
+          done()
+        })
+      })
   })
 
   it('should return 404', done => {
     request(app)
       .delete(`/todos/${new ObjectID().toHexString()}`)
       .expect(404)
+      .end(done)
+  })
+
+  it('should return 400 if id is not valid', done => {
+    request(app)
+      .get('/todos/2333')
+      .expect(400)
       .end(done)
   })
 })
