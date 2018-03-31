@@ -31,7 +31,7 @@ app.get('/todos/:id', (req, res) => {
   if (!ObjectID.isValid(id)) {
     res.status(400).send()
   } else {
-    Todo.find({ _id: id }).then(doc => {
+    Todo.findOne({ _id: id }).then(doc => {
       if (doc) {
         res.status(200).send(doc)
       } else {
