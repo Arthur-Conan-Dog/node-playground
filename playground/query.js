@@ -16,3 +16,8 @@ if (!ObjectID.isValid(id)) {
 
 Todo.findById(id).then(res => console.log(res)).catch(e => console.error(e))
 
+// Todo.remove({}).then(res => console.log(res))
+
+// Todo.findOneAndRemove({}).then(doc => console.log(doc))
+
+// Todo.findByIdAndRemove(id).then(doc => console.log(doc))
