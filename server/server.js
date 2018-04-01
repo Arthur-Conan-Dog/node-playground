@@ -66,9 +66,9 @@ app.patch('/todos/:id', (req, res) => {
   const { id } = req.params,
         todo = lodash.pick(req.body, ['text', 'completed'])
   
-  // if (!ObjectID.isValid(id)) {
-  //   return res.status(400).send()
-  // }
+  if (!ObjectID.isValid(id)) {
+    return res.status(400).send()
+  }
 
   if (lodash.isBoolean(todo.completed) && todo.completed) {
     todo.completedAt = new Date().getTime()
