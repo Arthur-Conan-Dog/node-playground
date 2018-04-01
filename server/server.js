@@ -1,3 +1,5 @@
+require('./config')
+
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -12,7 +14,7 @@ const { Todo } = require('./models/todo')
 const { User } = require('./models/user')
 
 const app = express(),
-      port = process.env.PORT || 3001
+      port = process.env.PORT
 
 app.use(bodyParser.json())
 
